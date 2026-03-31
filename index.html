@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="description" content="Plano de estudos profissional para desenvolvimento web. Acompanhe seu progresso ao longo de 8 meses." />
+  <meta name="theme-color" content="#0a0e27" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Plano de Estudos - Dev Web | Acompanhe seu Progresso</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2338bdf8;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%234ade80;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' fill='%230a0e27' rx='16'/%3E%3Cpath d='M30 40 L64 30 L98 40 L98 90 Q98 108 80 115 L48 115 Q30 108 30 90 Z' fill='url(%23grad1)' stroke='%23e5e7eb' stroke-width='2'/%3E%3Ccircle cx='45' cy='65' r='5' fill='%230a0e27'/%3E%3Ccircle cx='64' cy='60' r='5' fill='%230a0e27'/%3E%3Ccircle cx='83' cy='65' r='5' fill='%230a0e27'/%3E%3Cpath d='M42 80 L64 75 L86 80' stroke='%230a0e27' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M52 97 Q64 105 76 97' stroke='%230a0e27' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M60 45 L70 50 L68 62 L62 60 Z' fill='%23fbbf24' opacity='0.9'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2338bdf8;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%234ade80;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' fill='%230a0e27' rx='16'/%3E%3Cpath d='M30 40 L64 30 L98 40 L98 90 Q98 108 80 115 L48 115 Q30 108 30 90 Z' fill='url(%23grad2)' stroke='%23e5e7eb' stroke-width='2'/%3E%3Ccircle cx='45' cy='65' r='5' fill='%230a0e27'/%3E%3Ccircle cx='64' cy='60' r='5' fill='%230a0e27'/%3E%3Ccircle cx='83' cy='65' r='5' fill='%230a0e27'/%3E%3Cpath d='M42 80 L64 75 L86 80' stroke='%230a0e27' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M52 97 Q64 105 76 97' stroke='%230a0e27' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M60 45 L70 50 L68 62 L62 60 Z' fill='%23fbbf24' opacity='0.9'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="header-title-group">
+        <h1 class="header-title">📚 Plano de Estudos - Desenvolvimento Web</h1>
+        <p class="header-subtitle">Sua jornada de 8 meses para dominar desenvolvimento web</p>
+      </div>
+    </div>
+    <div class="header-controls">
+      <button id="theme-toggle" class="btn btn-icon" title="Alternar tema">
+        <span class="theme-icon">🌙</span>
+      </button>
+      <div class="progress-wrapper">
+        <span id="progress-text" class="progress-text">Progresso: 0% concluído</span>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+      <button id="reset-btn" class="btn btn-danger" title="Resetar todo progresso">↻ Resetar</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="sidebar">
+      <div class="filters-section">
+        <h3 class="filters-title">Filtrar por Mês</h3>
+        <div class="filter-buttons" id="filter-buttons"></div>
+        <button id="filter-all" class="filter-btn active">Todos (8)</button>
+      </div>
+      <div class="stats-section">
+        <h3 class="stats-title">Estatísticas</h3>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-label">Total de Semanas</span>
+            <span class="stat-value" id="total-weeks">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Concluídas</span>
+            <span class="stat-value completed" id="completed-count">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Pendentes</span>
+            <span class="stat-value pending" id="pending-count">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Tempo Est.</span>
+            <span class="stat-value">8 meses</span>
+          </div>
+        </div>
+      </div>
+      <div class="quick-stats">
+        <div class="quick-stat-row">
+          <span class="quick-stat-label">Média por mês:</span>
+          <span class="quick-stat-value" id="avg-per-month">0%</span>
+        </div>
+        <div class="quick-stat-row">
+          <span class="quick-stat-label">Status:</span>
+          <span class="quick-stat-value" id="current-streak">🚀 Começar agora!</span>
+        </div>
+      </div>
+      <div class="next-section">
+        <h3 class="stats-title">📍 Próxima Etapa</h3>
+        <div class="next-week-item">
+          <p id="next-week-label" class="next-week-text">Comece pelo Mês 1!</p>
+          <small>Mantenha o ritmo de estudos</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="search-bar-wrapper">
+        <input
+          type="text"
+          id="search-input"
+          class="search-bar"
+          placeholder="🔍 Buscar semana ou conteúdo..."
+          aria-label="Buscar nas semanas"
+        />
+        <span class="search-results-count" id="search-count"></span>
+      </div>
+      <section class="months-grid" id="months-container" role="main">
+        <!-- Os cards de meses/semanas serão inseridos via JS -->
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-text">💡 Dica: Clique nas semanas para marcar como concluídas. Seu progresso é salvo automaticamente!</p>
+      <p class="footer-credit">Desenvolvido para ajudar sua jornada no desenvolvimento web</p>
+      <div class="footer-brand">
+        <p class="footer-author">© 2026 <strong>Walyson</strong> | Dev em evolução 🚀</p>
+        <a href="https://github.com/stackwaly" target="_blank" rel="noopener noreferrer" class="github-link" title="Visite meu GitHub">
+          <span class="github-icon">🐙</span> GitHub
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
